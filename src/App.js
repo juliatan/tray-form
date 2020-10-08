@@ -4,7 +4,7 @@ import Layout from './hoc/Layout/Layout';
 function App() {
   return (
     <Layout>
-      <p>Tray.io</p>
+      <h1>Tray.io</h1>
     </Layout>
   );
 }

@@ -1,0 +1,13 @@
+@import '../../../assets/stylesheets/colours';
+
+.FormTabs {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  list-style: none;
+  background-color: $white;
+  cursor: pointer;
+}

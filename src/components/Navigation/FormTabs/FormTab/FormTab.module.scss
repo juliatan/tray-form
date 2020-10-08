@@ -1,0 +1,17 @@
+@import '../../../../assets/stylesheets/colours';
+
+.FormTab {
+  margin: 0;
+  flex-grow: 1;
+  padding: 1rem;
+  height: 100%;
+  border: 1px solid $dark-green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.middle {
+  border-right: 0px;
+  border-left: 0px;
+}
