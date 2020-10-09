@@ -1,5 +1,6 @@
 import React from 'react';
 import FormTabs from '../../components/Navigation/FormTabs/FormTabs';
+import UserDetails from '../../components/UserDetails/UserDetails';
 import classes from './Layout.module.scss';
 
 const layout = (props) => (
@@ -8,6 +9,9 @@ const layout = (props) => (
     <nav>
       <FormTabs />
     </nav>
+    <div className={classes.Page}>
+      <UserDetails />
+    </div>
   </div>
 );
 

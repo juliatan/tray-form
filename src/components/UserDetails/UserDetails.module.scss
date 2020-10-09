@@ -1,0 +1,13 @@
+.UserDetails {
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input {
+    margin: 8px 0;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 4px;
+  }
+}
