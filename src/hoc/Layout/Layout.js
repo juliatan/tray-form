@@ -16,7 +16,8 @@ class Layout extends Component {
           <FormTabs />
         </nav>
         <div className={classes.Page}>
-          <UserDetails saveUserDetails={this.submitHandler} />
+          <UserDetails saveDetails={this.submitUserDetailsHandler} />
+          {/* <PrivacyDetails saveDetails={this.submitPrivacyDetailsHandler} */}
         </div>
       </div>
     );

@@ -13,7 +13,7 @@ const userDetails = (props) => {
       .max(50, 'Please use less than 50 characters')
       .matches(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{10,})/,
-        'Password needs to contain at least one uppercase, one lowercase and one number',
+        'Must contain at least one uppercase, lowercase and number character',
       )
       .required('Your password is required'),
     email: Yup.string()
@@ -27,35 +27,50 @@ const userDetails = (props) => {
         initialValues={{ email: '', password: '', name: '', role: '' }}
         validationSchema={UserDetailsSchema}
         onSubmit={(values, { setSubmitting }) => {
-          props.saveUserDetails(values);
+          props.saveDetails(values);
           setSubmitting(false);
         }}
       >
         {({ isSubmitting, isValid, dirty }) => (
           <Form>
-            <label htmlFor="name">Name:</label>
+            <div className={classes.labelContainer}>
+              <label htmlFor="name">
+                Name: <span className={classes.required}>*</span>
+              </label>
+              <ErrorMessage name="name" />
+            </div>
             <Field name="name" type="text" placeholder="Full name" />
-            <ErrorMessage name="name" />
 
-            <label htmlFor="role">Role:</label>
+            <div className={classes.labelContainer}>
+              <label htmlFor="role">Role:</label>
+              <ErrorMessage name="role" />
+            </div>
             <Field name="role" type="text" placeholder="Role" />
-            <ErrorMessage name="role" />
 
-            <label htmlFor="email">Email:</label>
+            <div className={classes.labelContainer}>
+              <label htmlFor="email">
+                Email: <span className={classes.required}>*</span>
+              </label>
+              <ErrorMessage name="email" />
+            </div>
             <Field name="email" type="email" placeholder="Email address" />
-            <ErrorMessage name="email" />
 
-            <label htmlFor="password">Password:</label>
+            <div className={classes.labelContainer}>
+              <label htmlFor="password">
+                Password: <span className={classes.required}>*</span>
+              </label>
+              <ErrorMessage name="password" />
+            </div>
             <Field
               name="password"
               type="password"
               placeholder="Password (minimum of 10 characters)"
             />
-            <ErrorMessage name="password" />
 
             <button
               type="submit"
               disabled={!(isValid && dirty) || isSubmitting}
+              className={classes.submitButton}
             >
               Submit
             </button>

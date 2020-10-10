@@ -1,3 +1,5 @@
+@import '../../assets/stylesheets/colours';
+
 .UserDetails {
   form {
     display: flex;
@@ -7,7 +9,58 @@
   input {
     margin: 8px 0;
     height: 40px;
-    border: 1px solid black;
+    border: 1px solid $dark-green;
     border-radius: 4px;
+    font-size: 1rem;
+    color: $dark-green;
+
+    &:focus {
+      outline: none;
+      border-color: $medium-green;
+    }
+  }
+
+  .labelContainer {
+    display: inline-block;
+    font-size: 0.875rem;
+    color: $red;
+
+    label {
+      margin-right: 8px;
+      color: $dark-green;
+    }
+
+    .required {
+      color: $red;
+    }
+  }
+
+  .submitButton {
+    display: block;
+    width: 96px;
+    margin: 16px 0 0 auto;
+    padding: 8px 16px;
+    color: $white;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    background-color: $button-success;
+    border-color: $button-success;
+
+    &:hover:not(:disabled) {
+      background-color: $button-success-hover;
+      border-color: $button-success-hover;
+    }
+
+    &:disabled {
+      opacity: 0.65;
+    }
+
+    &:not(:disabled) {
+      cursor: pointer;
+    }
   }
 }
