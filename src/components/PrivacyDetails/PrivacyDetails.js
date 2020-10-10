@@ -30,7 +30,7 @@ const privacyDetails = (props) => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className={classes.submitButton}
+              className={classes.SubmitButton}
             >
               Submit
             </button>

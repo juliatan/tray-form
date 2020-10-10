@@ -23,6 +23,7 @@ const userDetails = (props) => {
 
   return (
     <div className={classes.UserDetails}>
+      <p className={classes.Legend}>* is a required field</p>
       <Formik
         initialValues={{ email: '', password: '', name: '', role: '' }}
         validationSchema={UserDetailsSchema}
@@ -32,31 +33,31 @@ const userDetails = (props) => {
       >
         {({ isSubmitting, isValid, dirty }) => (
           <Form>
-            <div className={classes.labelContainer}>
+            <div className={classes.LabelContainer}>
               <label htmlFor="name">
-                Name: <span className={classes.required}>*</span>
+                Name: <span className={classes.Required}>*</span>
               </label>
               <ErrorMessage name="name" />
             </div>
             <Field name="name" type="text" placeholder="Full name" />
 
-            <div className={classes.labelContainer}>
+            <div className={classes.LabelContainer}>
               <label htmlFor="role">Role:</label>
               <ErrorMessage name="role" />
             </div>
             <Field name="role" type="text" placeholder="Role" />
 
-            <div className={classes.labelContainer}>
+            <div className={classes.LabelContainer}>
               <label htmlFor="email">
-                Email: <span className={classes.required}>*</span>
+                Email: <span className={classes.Required}>*</span>
               </label>
               <ErrorMessage name="email" />
             </div>
-            <Field name="email" type="email" placeholder="Email address" />
+            <Field name="email" type="email" placeholder="name@company.com" />
 
-            <div className={classes.labelContainer}>
+            <div className={classes.LabelContainer}>
               <label htmlFor="password">
-                Password: <span className={classes.required}>*</span>
+                Password: <span className={classes.Required}>*</span>
               </label>
               <ErrorMessage name="password" />
             </div>
@@ -69,7 +70,7 @@ const userDetails = (props) => {
             <button
               type="submit"
               disabled={!(isValid && dirty) || isSubmitting}
-              className={classes.submitButton}
+              className={classes.SubmitButton}
             >
               Submit
             </button>

@@ -1,6 +1,11 @@
 @import '../../assets/stylesheets/colours';
 
 .UserDetails {
+  .Legend {
+    font-size: 0.875rem;
+    color: $red;
+  }
+
   form {
     display: flex;
     flex-direction: column;
@@ -20,7 +25,7 @@
     }
   }
 
-  .labelContainer {
+  .LabelContainer {
     display: inline-block;
     font-size: 0.875rem;
     color: $red;
@@ -30,12 +35,12 @@
       color: $dark-green;
     }
 
-    .required {
+    .Required {
       color: $red;
     }
   }
 
-  .submitButton {
+  .SubmitButton {
     display: block;
     width: 96px;
     margin: 16px 0 0 auto;
