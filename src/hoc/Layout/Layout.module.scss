@@ -1,17 +1,32 @@
+@import '../../assets/stylesheets/breakpoints';
+
 .Layout {
   width: 60%;
   margin: 100px auto;
+  max-width: 720px;
 
   h1 {
     font-size: 3rem;
   }
 
   nav {
-    height: 64px;
+    height: 56px;
   }
 
   .Page {
     width: 100%;
     padding: 16px;
+  }
+}
+
+@media (max-width: $mobile) {
+  .Layout {
+    h1 {
+      font-size: 2rem;
+    }
+
+    nav {
+      height: 48px;
+    }
   }
 }

@@ -40,13 +40,13 @@ const userDetails = (props) => {
               </label>
               <ErrorMessage name="name" />
             </div>
-            <Field name="name" type="text" placeholder="Full name" />
+            <Field name="name" type="text" placeholder="Jane Doe" />
 
             <div className={classes.LabelContainer}>
               <label htmlFor="role">Role:</label>
               <ErrorMessage name="role" />
             </div>
-            <Field name="role" type="text" placeholder="Role" />
+            <Field name="role" type="text" placeholder="Engineer" />
 
             <div className={classes.LabelContainer}>
               <label htmlFor="email">
@@ -65,7 +65,7 @@ const userDetails = (props) => {
             <Field
               name="password"
               type="password"
-              placeholder="Password (minimum of 10 characters)"
+              placeholder="Min. 10 chars"
             />
 
             <Button

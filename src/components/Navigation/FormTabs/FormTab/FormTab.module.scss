@@ -1,4 +1,5 @@
 @import '../../../../assets/stylesheets/colours';
+@import '../../../../assets/stylesheets/breakpoints';
 
 .FormTab {
   margin: 0;
@@ -33,5 +34,11 @@
   &:visited,
   &:hover {
     color: $dark-green;
+  }
+}
+
+@media (max-width: $mobile) {
+  .Link {
+    font-size: 0.875rem;
   }
 }

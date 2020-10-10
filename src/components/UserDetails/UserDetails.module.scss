@@ -1,4 +1,5 @@
 @import '../../assets/stylesheets/colours';
+@import '../../assets/stylesheets/breakpoints';
 
 .UserDetails {
   .Legend {
@@ -38,6 +39,14 @@
 
     .Required {
       color: $red;
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .UserDetails {
+    input {
+      font-size: 0.875rem;
     }
   }
 }
