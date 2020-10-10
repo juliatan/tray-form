@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import FormTabs from '../../components/Navigation/FormTabs/FormTabs';
 import UserDetails from '../../components/UserDetails/UserDetails';
+import PrivacyDetails from '../../components/PrivacyDetails/PrivacyDetails';
 import classes from './Layout.module.scss';
 
 class Layout extends Component {
-  submitHandler = (data) => {
+  submitUserDetailsHandler = (data) => {
+    console.log(data);
+  };
+
+  submitPrivacyDetailsHandler = (data) => {
     console.log(data);
   };
 
@@ -17,7 +22,7 @@ class Layout extends Component {
         </nav>
         <div className={classes.Page}>
           <UserDetails saveDetails={this.submitUserDetailsHandler} />
-          {/* <PrivacyDetails saveDetails={this.submitPrivacyDetailsHandler} */}
+          <PrivacyDetails saveDetails={this.submitPrivacyDetailsHandler} />
         </div>
       </div>
     );
