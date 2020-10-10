@@ -1,17 +1,24 @@
 import React from 'react';
-import { Formik } from 'formik';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import classes from './UserDetails.module.scss';
 
 const userDetails = (props) => {
   const UserDetailsSchema = Yup.object().shape({
-    name: Yup.string().max(50, 'Too Long!').required('Required'),
+    name: Yup.string()
+      .max(50, 'Please use less than 50 characters')
+      .required('Your name is required'),
     password: Yup.string()
-      .min(10, 'Too Short!')
-      .max(50, 'Too Long!')
-      .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{10,})/, 'Invalid')
-      .required('Required'),
-    email: Yup.string().email('Invalid email').required('Required'),
+      .min(10, 'Password needs to be a minimum of 10 characters')
+      .max(50, 'Please use less than 50 characters')
+      .matches(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{10,})/,
+        'Password needs to contain at least one uppercase, one lowercase and one number',
+      )
+      .required('Your password is required'),
+    email: Yup.string()
+      .email("This doesn't look like a valid email address")
+      .required('Your email is required'),
   });
 
   return (
@@ -21,66 +28,38 @@ const userDetails = (props) => {
         validationSchema={UserDetailsSchema}
         onSubmit={(values, { setSubmitting }) => {
           props.saveUserDetails(values);
+          setSubmitting(false);
         }}
       >
-        {({
-          values,
-          errors,
-          touched,
-          handleChange,
-          handleBlur,
-          handleSubmit,
-          isSubmitting,
-          /* and other goodies */
-        }) => (
-          <form onSubmit={handleSubmit}>
+        {({ isSubmitting, isValid, dirty }) => (
+          <Form>
             <label htmlFor="name">Name:</label>
-            <input
-              type="text"
-              name="name"
-              placeholder="Full name"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.name}
-            />
-            {errors.name && touched.name && errors.name}
+            <Field name="name" type="text" placeholder="Full name" />
+            <ErrorMessage name="name" />
 
             <label htmlFor="role">Role:</label>
-            <input
-              type="text"
-              name="role"
-              placeholder="Role"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.role}
-            />
-            {errors.role && touched.role && errors.role}
+            <Field name="role" type="text" placeholder="Role" />
+            <ErrorMessage name="role" />
 
             <label htmlFor="email">Email:</label>
-            <input
-              type="email"
-              name="email"
-              placeholder="Email address"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.email}
-            />
-            {errors.email && touched.email && errors.email}
+            <Field name="email" type="email" placeholder="Email address" />
+            <ErrorMessage name="email" />
 
             <label htmlFor="password">Password:</label>
-            <input
-              type="password"
+            <Field
               name="password"
-              placeholder="Password (more than 9 chars)"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.password}
+              type="password"
+              placeholder="Password (minimum of 10 characters)"
             />
-            {errors.password && touched.password && errors.password}
-            <button type="submit" disabled={isSubmitting}>
+            <ErrorMessage name="password" />
+
+            <button
+              type="submit"
+              disabled={!(isValid && dirty) || isSubmitting}
+            >
               Submit
             </button>
-          </form>
+          </Form>
         )}
       </Formik>
     </div>
