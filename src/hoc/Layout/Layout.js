@@ -6,12 +6,20 @@ import VerificationReminder from '../../components/VerificationReminder/Verifica
 import classes from './Layout.module.scss';
 
 class Layout extends Component {
-  submitUserDetailsHandler = (data) => {
-    console.log(data);
+  state = {
+    tab: 'user',
+    userDetails: null,
+    privacyDetails: null,
   };
 
-  submitPrivacyDetailsHandler = (data) => {
-    console.log(data);
+  submitUserDetailsHandler = (userDetails) => {
+    this.setState({ tab: 'privacy', userDetails });
+  };
+
+  submitPrivacyDetailsHandler = (privacyDetails) => {
+    const result = { ...this.state.userDetails, ...privacyDetails };
+    this.setState({ tab: 'verification', privacyDetails });
+    console.log(result);
   };
 
   render() {
@@ -19,12 +27,16 @@ class Layout extends Component {
       <div className={classes.Layout}>
         {this.props.children}
         <nav>
-          <FormTabs />
+          <FormTabs currentTab={this.state.tab} />
         </nav>
         <div className={classes.Page}>
-          <UserDetails saveDetails={this.submitUserDetailsHandler} />
-          <PrivacyDetails saveDetails={this.submitPrivacyDetailsHandler} />
-          <VerificationReminder />
+          {this.state.tab === 'user' && (
+            <UserDetails saveDetails={this.submitUserDetailsHandler} />
+          )}
+          {this.state.tab === 'privacy' && (
+            <PrivacyDetails saveDetails={this.submitPrivacyDetailsHandler} />
+          )}
+          {this.state.tab === 'verification' && <VerificationReminder />}
         </div>
       </div>
     );

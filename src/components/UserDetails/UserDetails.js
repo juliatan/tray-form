@@ -26,9 +26,8 @@ const userDetails = (props) => {
       <Formik
         initialValues={{ email: '', password: '', name: '', role: '' }}
         validationSchema={UserDetailsSchema}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(values) => {
           props.saveDetails(values);
-          setSubmitting(false);
         }}
       >
         {({ isSubmitting, isValid, dirty }) => (

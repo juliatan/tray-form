@@ -9,9 +9,8 @@ const privacyDetails = (props) => {
     <div className={classes.PrivacyDetails}>
       <Formik
         initialValues={{ newsletters: [] }}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(values) => {
           props.saveDetails(values);
-          setSubmitting(false);
         }}
       >
         {({ isSubmitting }) => (
