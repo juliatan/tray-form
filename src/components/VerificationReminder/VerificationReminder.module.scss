@@ -1,4 +1,12 @@
+@import '../../assets/stylesheets/breakpoints';
+
 .VerificationReminder {
   width: 100%;
   text-align: center;
+}
+
+@media (max-width: $mobile) {
+  .VerificationReminder {
+    font-size: 0.875rem;
+  }
 }

@@ -1,4 +1,5 @@
 @import '../../assets/stylesheets/colours';
+@import '../../assets/stylesheets/breakpoints';
 
 .PrivacyDetails {
   form {
@@ -8,5 +9,17 @@
 
   input {
     margin: 8px 8px 8px 0;
+  }
+}
+
+@media (max-width: $mobile) {
+  .PrivacyDetails {
+    form {
+      font-size: 0.875rem;
+    }
+
+    [type='checkbox'] {
+      vertical-align: middle;
+    }
   }
 }
