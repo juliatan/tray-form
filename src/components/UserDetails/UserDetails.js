@@ -1,5 +1,4 @@
 import React from 'react';
-// import Input from '../UI/Input/Input';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import classes from './UserDetails.module.scss';
