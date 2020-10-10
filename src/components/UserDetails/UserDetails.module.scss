@@ -39,33 +39,4 @@
       color: $red;
     }
   }
-
-  .SubmitButton {
-    display: block;
-    width: 96px;
-    margin: 16px 0 0 auto;
-    padding: 8px 16px;
-    color: $white;
-    font-size: 1rem;
-    line-height: 1.5rem;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    background-color: $button-success;
-    border-color: $button-success;
-
-    &:hover:not(:disabled) {
-      background-color: $button-success-hover;
-      border-color: $button-success-hover;
-    }
-
-    &:disabled {
-      opacity: 0.65;
-    }
-
-    &:not(:disabled) {
-      cursor: pointer;
-    }
-  }
 }

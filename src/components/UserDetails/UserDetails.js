@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import Button from '../UI/Button/Button';
 import classes from './UserDetails.module.scss';
 
 const userDetails = (props) => {
@@ -67,13 +68,12 @@ const userDetails = (props) => {
               placeholder="Password (minimum of 10 characters)"
             />
 
-            <button
+            <Button
               type="submit"
               disabled={!(isValid && dirty) || isSubmitting}
-              className={classes.SubmitButton}
             >
               Submit
-            </button>
+            </Button>
           </Form>
         )}
       </Formik>

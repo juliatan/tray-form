@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import { Formik, Field, Form } from 'formik';
+import Button from '../UI/Button/Button';
 import classes from './PrivacyDetails.module.scss';
 
 const privacyDetails = (props) => {
@@ -15,7 +16,6 @@ const privacyDetails = (props) => {
       >
         {({ isSubmitting }) => (
           <Form>
-            {/* <div role="group" aria-labelledby="checkbox-group"> */}
             <label>
               <Field type="checkbox" name="newsletters" value="trayProduct" />
               Receive updates about Tray.io product by email
@@ -25,15 +25,9 @@ const privacyDetails = (props) => {
               Receive communication by email for other products created by the
               Tray.io team
             </label>
-            {/* </div> */}
-
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className={classes.SubmitButton}
-            >
+            <Button type="submit" disabled={isSubmitting}>
               Submit
-            </button>
+            </Button>
           </Form>
         )}
       </Formik>
