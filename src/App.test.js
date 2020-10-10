@@ -1,9 +1,18 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, cleanup } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('App component', () => {
+  afterEach(cleanup);
+
+  it('should render', () => {
+    const { asFragment } = render(<App />);
+    expect(asFragment(<App />)).toMatchSnapshot();
+  });
+
+  it('should render header text', () => {
+    const { getByText } = render(<App />);
+    const h1Element = getByText(/Tray.io/i);
+    expect(h1Element).toBeInTheDocument();
+  });
 });
