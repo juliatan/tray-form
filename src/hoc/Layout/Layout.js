@@ -1,18 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react';
 import FormTabs from '../../components/Navigation/FormTabs/FormTabs';
 import UserDetails from '../../components/UserDetails/UserDetails';
 import classes from './Layout.module.scss';
 
-const layout = (props) => (
-  <div className={classes.Layout}>
-    {props.children}
-    <nav>
-      <FormTabs />
-    </nav>
-    <div className={classes.Page}>
-      <UserDetails />
-    </div>
-  </div>
-);
+class Layout extends Component {
+  submitHandler = (data) => {
+    console.log(data);
+  };
 
-export default layout;
+  render() {
+    return (
+      <div className={classes.Layout}>
+        {this.props.children}
+        <nav>
+          <FormTabs />
+        </nav>
+        <div className={classes.Page}>
+          <UserDetails saveUserDetails={this.submitHandler} />
+        </div>
+      </div>
+    );
+  }
+}
+
+export default Layout;
