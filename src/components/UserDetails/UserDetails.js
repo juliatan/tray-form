@@ -71,6 +71,7 @@ const userDetails = (props) => {
             <Button
               type="submit"
               disabled={!(isValid && dirty) || isSubmitting}
+              data-testid="userDetailsSubmit"
             >
               Submit
             </Button>

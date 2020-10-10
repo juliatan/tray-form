@@ -7,7 +7,7 @@ import classes from './PrivacyDetails.module.scss';
 
 const privacyDetails = (props) => {
   return (
-    <div className={classes.PrivacyDetails}>
+    <div className={classes.PrivacyDetails} data-testid="privacyDetails">
       <Formik
         initialValues={{ newsletters: [] }}
         onSubmit={(values) => {
@@ -25,7 +25,11 @@ const privacyDetails = (props) => {
               Receive communication by email for other products created by the
               Tray.io team
             </label>
-            <Button type="submit" disabled={isSubmitting}>
+            <Button
+              type="submit"
+              disabled={isSubmitting}
+              data-testid="privacyDetailsSubmit"
+            >
               Submit
             </Button>
           </Form>
