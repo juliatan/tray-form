@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VerificationReminder component should render 1`] = `
+<DocumentFragment>
+  <div
+    class="VerificationReminder"
+    data-testid="verificationReminder"
+  >
+    <div
+      class="Icon"
+    >
+      <svg>
+        envelope.svg
+      </svg>
+    </div>
+    <p>
+      Please verify your email address. You should have received an email from us already!
+    </p>
+  </div>
+</DocumentFragment>
+`;
