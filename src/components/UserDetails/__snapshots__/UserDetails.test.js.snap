@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserDetails component should render 1`] = `
+<DocumentFragment>
+  <div
+    class="UserDetails"
+  >
+    <p
+      class="Legend"
+    >
+      * is a required field
+    </p>
+    <form
+      action="#"
+    >
+      <div
+        class="LabelContainer"
+      >
+        <label
+          for="name"
+        >
+          Name: 
+          <span
+            class="Required"
+          >
+            *
+          </span>
+        </label>
+      </div>
+      <input
+        name="name"
+        placeholder="Jane Doe"
+        type="text"
+        value=""
+      />
+      <div
+        class="LabelContainer"
+      >
+        <label
+          for="role"
+        >
+          Role:
+        </label>
+      </div>
+      <input
+        name="role"
+        placeholder="Engineer"
+        type="text"
+        value=""
+      />
+      <div
+        class="LabelContainer"
+      >
+        <label
+          for="email"
+        >
+          Email: 
+          <span
+            class="Required"
+          >
+            *
+          </span>
+        </label>
+      </div>
+      <input
+        name="email"
+        placeholder="name@company.com"
+        type="email"
+        value=""
+      />
+      <div
+        class="LabelContainer"
+      >
+        <label
+          for="password"
+        >
+          Password: 
+          <span
+            class="Required"
+          >
+            *
+          </span>
+        </label>
+      </div>
+      <input
+        name="password"
+        placeholder="Min. 10 chars"
+        type="password"
+        value=""
+      />
+      <button
+        class="Button"
+        data-testid="userDetailsSubmit"
+        disabled=""
+        type="submit"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;
