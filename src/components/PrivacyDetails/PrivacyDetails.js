@@ -17,11 +17,21 @@ const privacyDetails = (props) => {
         {({ isSubmitting }) => (
           <Form>
             <label>
-              <Field type="checkbox" name="newsletters" value="trayProduct" />
+              <Field
+                type="checkbox"
+                name="newsletters"
+                value="trayProduct"
+                data-testid="trayProduct"
+              />
               Receive updates about Tray.io product by email
             </label>
             <label>
-              <Field type="checkbox" name="newsletters" value="otherProducts" />
+              <Field
+                type="checkbox"
+                name="newsletters"
+                value="otherProducts"
+                data-testid="otherProducts"
+              />
               Receive communication by email for other products created by the
               Tray.io team
             </label>
