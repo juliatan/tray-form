@@ -1,6 +1,6 @@
 # Tray technical test
 
-This app is a form that allows users to enter their details and privacy preferences. It then confirms that their form has been submitted. There's also a [deployed version](https://google.com).
+This app is a form that allows users to enter their details and privacy preferences. It then confirms that their form has been submitted. There's also a [deployed version](https://julia-tray-form.netlify.app).
 
 ## Requirements
 
