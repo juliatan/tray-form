@@ -2,32 +2,39 @@ import React from 'react';
 import { render, cleanup, fireEvent, waitFor } from '@testing-library/react';
 import Layout from './Layout';
 
-afterEach(cleanup);
 describe('Layout component', () => {
+  let component;
+
+  beforeEach(() => {
+    component = <Layout>Hello World</Layout>;
+  });
+
+  afterEach(cleanup);
+
   it('should render', () => {
-    const { asFragment } = render(<Layout>Hello World</Layout>);
-    expect(asFragment(<Layout>Hello World</Layout>)).toMatchSnapshot();
+    const { asFragment } = render(component);
+    expect(asFragment(component)).toMatchSnapshot();
   });
 
   it('should display PrivacyDetails page upon submission of validated user details', async () => {
-    const { container, getByTestId } = render(<Layout>Hello World</Layout>);
-    const name = container.querySelector('input[name="name"]');
-    const email = container.querySelector('input[name="email"]');
-    const password = container.querySelector('input[name="password"]');
+    const { container, getByTestId } = render(component);
+    const nameInput = container.querySelector('input[name="name"]');
+    const emailInput = container.querySelector('input[name="email"]');
+    const passwordInput = container.querySelector('input[name="password"]');
 
-    fireEvent.change(name, {
+    fireEvent.change(nameInput, {
       target: {
         value: 'mockname',
       },
     });
 
-    fireEvent.change(email, {
+    fireEvent.change(emailInput, {
       target: {
         value: 'test@email.com',
       },
     });
 
-    fireEvent.change(password, {
+    fireEvent.change(passwordInput, {
       target: {
         value: '123456789Aa',
       },
@@ -38,24 +45,24 @@ describe('Layout component', () => {
   });
 
   it('should display VerificationReminder page upon submission of privacy details', async () => {
-    const { container, getByTestId } = render(<Layout>Hello World</Layout>);
-    const name = container.querySelector('input[name="name"]');
-    const email = container.querySelector('input[name="email"]');
-    const password = container.querySelector('input[name="password"]');
+    const { container, getByTestId } = render(component);
+    const nameInput = container.querySelector('input[name="name"]');
+    const emailInput = container.querySelector('input[name="email"]');
+    const passwordInput = container.querySelector('input[name="password"]');
 
-    fireEvent.change(name, {
+    fireEvent.change(nameInput, {
       target: {
         value: 'mockname',
       },
     });
 
-    fireEvent.change(email, {
+    fireEvent.change(emailInput, {
       target: {
         value: 'test@email.com',
       },
     });
 
-    fireEvent.change(password, {
+    fireEvent.change(passwordInput, {
       target: {
         value: '123456789Aa',
       },
