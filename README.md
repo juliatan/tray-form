@@ -1,68 +1,60 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Tray technical test
 
-## Available Scripts
+This app is a form that allows users to enter their details and privacy preferences. It then confirms that their form has been submitted. There's also a [deployed version](https://google.com).
 
-In the project directory, you can run:
+## Requirements
 
-### `yarn start`
+- Some of the core libraries imported and used:
+  - `react`
+  - `formik`
+  - `yup`
+  - `node-sass`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Getting started
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- Install Node.js and Yarn if you don't already have them installed.
+- Download this repo and `cd` into the directory.
+- In this directory, run `yarn install`.
+- Start the React server in terminal with `yarn start`.
 
-### `yarn test`
+## App features
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- There are 3 pages: (1) User details collection, (2) Privacy details collection, (3) Verification reminder.
+- The tabs at the top of each page shows the user which stage they are at in the overall form.
+- I used Formik to help render the forms used in the UserDetails and PrivacyDetails pages. This allowed for simple state management (rather than having to use a more complex library like Redux). Along with Yup, it also allowed for a simple validation solution of the form input fields.
+- Upon successful submission, form details are console logged.
 
-### `yarn build`
+## Testing
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Tests for the app have been written using the React Testing Library.
+- To run the test suite, run `yarn test` whilst in the app's root folder.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Extending the app
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Changing the configuration of a certain page**
 
-### `yarn eject`
+- The 3 pages have each been separated out into their own components, namely `<UserDetails>`, `<PrivacyDetails>` and `<VerificationReminder>`. Each of these components can be safely reconfigured if necessary.
+- The `<Layout>` component acts as the state manager for the form details, as well as the current stage of the form a user is currently at.
+- If you want to amend the order of these pages, they can be set in the `Layout` component by ensuring the tab state is set correctly upon the form submission of each page.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**Adding new pages**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- A new component should be created for any new pages.
+- These can then be added to the `<Layout>` component.
+- The `FormTabs` component should also be amended, whereby a new `FormTab` component can be added for the new page.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**Going back a page**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- If we want to give the app the illusion of having multiple pages in the form, where the URL changes for each page, I would look at utilising a library like `react-router-dom`.
+- If we were not concerned about this, we could add a back button to each page, and display any previously filled-in form inputs by checking the state of the `userDetails` and `privacyDetails` in the `<Layout>` class component.
 
-## Learn More
+### Note
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- The `FormTab` component currently utilises `<a href="#">` tag placeholders. Should we decide to use React Router, these should be substitued with `NavLinks`.
+- I decided not to abstract out the Formik forms for this app as there was not much repitition across the 2 components that utilises Formik. Should more pages be added with similar Formik forms, there would be a stronger argument for creating a pre-styled Formik component.
+- Despite a movement towards using solely functional components in React, I decided to use a class component for `Layout` as using React hooks for setting state in functional components is still fairly new. As I might be working with legacy React code, I wanted to show that I understand class-based components in React.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Improvements
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- A basic media breakpoint for mobile has been included in the app styling. I have also only tested this on Chrome version 85.0.4183.121. If I had more time, I would check the responsiveness of the design for different browsers and screen types.
+- Similarly, this app could be improved by adding more accessibility tags such as ARIA attributes.
