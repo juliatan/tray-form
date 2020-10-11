@@ -35,24 +35,24 @@ This app is a form that allows users to enter their details and privacy preferen
 
 - The 3 pages have each been separated out into their own components, namely `<UserDetails>`, `<PrivacyDetails>` and `<VerificationReminder>`. Each of these components can be safely reconfigured if necessary.
 - The `<Layout>` component acts as the state manager for the form details, as well as the current stage of the form a user is currently at.
-- If you want to amend the order of these pages, they can be set in the `Layout` component by ensuring the tab state is set correctly upon the form submission of each page.
+- If you want to amend the order of these pages, they can be set in the `<Layout>` component by ensuring the tab state is set correctly upon the form submission of each page.
 
 **Adding new pages**
 
 - A new component should be created for any new pages.
 - These can then be added to the `<Layout>` component.
-- The `FormTabs` component should also be amended, whereby a new `FormTab` component can be added for the new page.
+- The `<FormTabs>` component should also be amended, whereby a new `<FormTab>` component can be added for the new page.
 
 **Going back a page**
 
 - If we want to give the app the illusion of having multiple pages in the form, where the URL changes for each page, I would look at utilising a library like `react-router-dom`.
-- If we were not concerned about this, we could add a back button to each page, and display any previously filled-in form inputs by checking the state of the `userDetails` and `privacyDetails` in the `<Layout>` class component.
+- If we were not concerned about this, we could add a back button to each page, and display any previously filled-in form inputs by checking the state of the `<userDetails>` and `<privacyDetails>` in the `<Layout>` class component.
 
 ### Note
 
-- The `FormTab` component currently utilises `<a href="#">` tag placeholders. Should we decide to use React Router, these should be substitued with `NavLinks`.
+- The `<FormTab>` component currently utilises `<a href="#">` tag placeholders. Should we decide to use React Router, these should be substitued with `<NavLinks>`.
 - I decided not to abstract out the Formik forms for this app as there was not much repitition across the 2 components that utilises Formik. Should more pages be added with similar Formik forms, there would be a stronger argument for creating a pre-styled Formik component.
-- Despite a movement towards using solely functional components in React, I decided to use a class component for `Layout` as using React hooks for setting state in functional components is still fairly new. As I might be working with legacy React code, I wanted to show that I understand class-based components in React.
+- Despite a movement towards using solely functional components in React, I decided to use a class component for `<Layout>` as using React hooks for setting state in functional components is still fairly new. As I might be working with legacy React code, I wanted to show that I understand class-based components in React.
 
 ### Improvements
 
