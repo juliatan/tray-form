@@ -28,6 +28,11 @@
   &:not(:disabled) {
     cursor: pointer;
   }
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
 }
 
 @media (max-width: $mobile) {
